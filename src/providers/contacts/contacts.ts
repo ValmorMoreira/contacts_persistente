@@ -22,8 +22,17 @@ export class ContactsProvider {
   }
 
   addContact(data){
-    
-  }
+    return this.getContacts().then(result => {
+        if (result) {
+            data['id'] = result.length + 1;
+            result.push(data);
+            return this.storage.set(STORAGE_KEY, result);
+          } else {
+            data['id'] = 1;
+            return this.storage.set(STORAGE_KEY, [data]);
+          }
+    });
+}
 
 
 }
