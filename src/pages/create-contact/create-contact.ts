@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ContactsProvider } from '../../providers/contacts/contacts';
 
 /**
  * Generated class for the CreateContactPage page.
@@ -15,11 +16,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CreateContactPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  model: Contact;
+
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams) {
+      this.model = new Contact();
+      this.model.name = 'Novo contato';
+      this.model.gender = 'male';
   }
+
+  createContact(){
+    
+  }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateContactPage');
   }
 
+}
+
+export class Contact {
+  name: string;
+  gender: string;
 }
