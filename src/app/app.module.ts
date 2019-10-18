@@ -11,6 +11,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { ContactsListPage } from '../pages/contacts-list/contacts-list';
 import { CreateContactPage } from '../pages/create-contact/create-contact';
+import { ContactEditPage } from "../pages/contact-edit/contact-edit";
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -26,6 +27,7 @@ import { ContactsProvider } from '../providers/contacts/contacts';
     HomePage,
     ContactsListPage,
     CreateContactPage,
+    ContactEditPage,
     TabsPage
   ],
   imports: [
@@ -41,6 +43,7 @@ import { ContactsProvider } from '../providers/contacts/contacts';
     HomePage,
     ContactsListPage,
     CreateContactPage,
+    ContactEditPage,
     TabsPage
   ],
   providers: [

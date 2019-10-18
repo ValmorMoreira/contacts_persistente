@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { ContactsProvider } from '../../providers/contacts/contacts';
 
 /**
@@ -20,7 +20,8 @@ export class ContactsListPage {
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-     public contactsProvider: ContactsProvider) {
+     public contactsProvider: ContactsProvider,
+     public toast : ToastController) {
       this.getContacts();
   }
 
@@ -32,6 +33,28 @@ export class ContactsListPage {
     });
   }
   
+  deleteContact(contact: any) {
+    this.contactsProvider.destroyContact(contact.id)
+    .then((result: any) => {
+      this.toast.create({ message: 'Excluído!', duration:3000}).present();
+      this.getContacts();
+    })
+    .catch((error: any) => {
+      this.toast.create({ message: error.error, duration:3000 }).present();
+    });
+  }
+  
+  openEditContact(id: number) {
+    this.contactsProvider.getContacts()
+    .then((result: any) => {
+      this.navCtrl.push('ContactEditPage',  { 
+        contact: result
+      });
+    })
+    .catch((error: any) => {
+      this.toast.create({ message: error.error, duration:3000}).present();
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsListPage');

@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ContactEditPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>contact-edit</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+
+
+    <img src="[(ngModel)]='model.photo'" />
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="model.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Gender</ion-label>
+      <ion-input type="select" name="gender" [(ngModel)]="model.gender"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label stacked>Salario</ion-label>
+      <ion-input type="text" name="salary" [(ngModel)]="model.salary"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-label stacked>Img</ion-label>
+      <ion-input type="text" name="photo" [(ngModel)]="model.photo"></ion-input>
+    </ion-item>
+
+
+
+  </ion-list>
+
+  <button ion-button block color="primary" (click)="saveContact()">Salvar</button>
+</ion-content>
